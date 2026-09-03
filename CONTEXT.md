@@ -45,6 +45,7 @@
 ## สถานะและข้อควรระวังของโค้ดปัจจุบัน
 
 - ยังไม่มี `requirements.txt` หรือ `pyproject.toml`; README จึงระบุคำสั่งติดตั้งจาก imports ที่พบใน source
+- โปรเจคนี้ติดตั้งไลบรารีใน Python interpreter ของ PyCharm โดยตรง และไม่ได้ใช้หรือสร้าง virtual environment ภายใน repository; Google Colab ใช้เฉพาะสำหรับ Training Custom Model
 - สคริปต์หลักใช้ hard-coded paths และแก้ค่าได้ที่บล็อก `CONFIG` ด้านบนไฟล์
 - วิดีโออินพุต `MVI_3018.MP4` และ `MVI_3019.MP4` ไม่ได้อยู่ใน repository ปัจจุบัน
 - `test_detect_video_noargs.py` และ `Testyolo_video_analytics.py` อ้าง `runs2/...` แต่โฟลเดอร์ที่มีอยู่คือ `run2/`; ต้องตรวจ path ก่อนรัน

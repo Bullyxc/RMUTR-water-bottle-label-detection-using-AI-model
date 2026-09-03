@@ -29,8 +29,10 @@
 
 ## Environment ที่คาดหวัง
 
+- โปรเจคนี้ติดตั้งไลบรารีใน Python interpreter ของ PyCharm โดยตรง และไม่ได้ใช้หรือสร้าง virtual environment ภายใน repository; Google Colab ใช้เฉพาะสำหรับ Training Custom Model
 - แนะนำ Python 3.11.x สำหรับความเข้ากันได้กับสคริปต์ทั้งหมด โดยเฉพาะ `backgroundremover/cmd/cli.py` ที่ import `distutils`
-- dependency หลัก: `torch`, `torchvision`, `ultralytics`, `opencv-python`, `numpy`, `pandas`, `matplotlib`, `screeninfo`, `roboflow`
+- dependency หลักที่ติดตั้งใน PyCharm: `torch`, `torchvision`, `ultralytics`, `opencv-python`, `numpy`, `pandas`, `matplotlib`, `screeninfo`
+- Dataset ใช้ผ่านเว็บไซต์ Roboflow และลิงก์ Dataset จะถูกใช้ในขั้นตอน Training บน Google Colab; ไม่ต้องติดตั้ง Roboflow ใน PyCharm
 - dependency เสริมของ `backgroundremover`: `pillow`, `scipy`, `scikit-image`, `pymatting`, `moviepy`, `ffmpeg-python`, `requests`, `flask`, `waitress` และ executable `ffmpeg`/`ffprobe`
 - ไม่พบไฟล์ Node.js (`.js`/`.ts`) ใน repository; runnable code ปัจจุบันเป็น Python scripts และโมดูล Python
 - repository ยังไม่มี `requirements.txt` หรือ `pyproject.toml`; ใช้คำสั่งติดตั้งที่บันทึกไว้ใน README และเลือก PyTorch build ให้ตรงกับ CUDA ของเครื่อง

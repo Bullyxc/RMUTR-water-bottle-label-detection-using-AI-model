@@ -89,9 +89,9 @@ Augmentation จะทำการแปลงภาพที่มีอยู�
 
 ### 2.1 สภาพแวดล้อมการทำงาน
 
-แพลตฟอร์มที่ใช้ใน Mini Project นี้ได้แก่ PyCharm ใช้เขียนโปรแกรมทั้งหมดด้วยภาษา Python, Roboflow .ใช้ในการสร้างชุดข้อมูล (Dataset) และ Google Colab ใช้ในการ Training Custom Model
+แพลตฟอร์มที่ใช้ใน Mini Project นี้ได้แก่ PyCharm ใช้เขียนโปรแกรมทั้งหมดด้วยภาษา Python และติดตั้งไลบรารีที่จำเป็น, Roboflow ใช้ในการสร้างชุดข้อมูล (Dataset) และ Google Colab ใช้เฉพาะในการ Training Custom Model
 
-ไลบรารีที่จำเป็น ได้แก่ OpenCV, YOLOv8, roboflow, pandas, matplotlib
+ไลบรารีที่ติดตั้งและใช้งานใน PyCharm ได้แก่ OpenCV, YOLOv8, pandas, matplotlib ส่วน Dataset ใช้ผ่านเว็บไซต์ Roboflow และลิงก์ที่ระบุไว้ในขั้นตอน Training
 
 <p align="center">
   <img src="assets/13.jpg" alt="PyCharm" width="720"><br>
@@ -108,24 +108,22 @@ Augmentation จะทำการแปลงภาพที่มีอยู�
   Google Colab
 </p>
 
-#### การเตรียม Environment สำหรับโค้ดใน Repository
+#### การติดตั้งไลบรารีใน PyCharm
 
-ไฟล์ต้นฉบับไม่ได้ระบุ Python version แบบตายตัว แนะนำให้ใช้ **Python 3.11.x** เพื่อให้รองรับทั้งสคริปต์ตรวจจับและชุด `backgroundremover` ที่ยังเรียกใช้ `distutils` อยู่ โค้ดตรวจจับหลักอาจทำงานบน Python 3.12 ได้ แต่การใช้งาน `backgroundremover/cmd/cli.py` ควรใช้ Python 3.11 หรือต่ำกว่า หรือปรับโค้ดส่วนดังกล่าวก่อน
+โปรเจคนี้ติดตั้งไลบรารีใน Python interpreter หรือ Terminal ของ PyCharm โดยตรง และไม่ได้สร้างหรือใช้ virtual environment ภายใน repository ส่วน Google Colab ใช้เฉพาะสำหรับ Training Custom Model จึงไม่ต้องติดตั้งไลบรารีในเครื่องสำหรับ Colab ไฟล์ต้นฉบับไม่ได้ระบุ Python version แบบตายตัว แนะนำให้ใช้ **Python 3.11.x** เพื่อให้รองรับทั้งสคริปต์ตรวจจับและชุด `backgroundremover` ที่ยังเรียกใช้ `distutils` อยู่ โค้ดตรวจจับหลักอาจทำงานบน Python 3.12 ได้ แต่การใช้งาน `backgroundremover/cmd/cli.py` ควรใช้ Python 3.11 หรือต่ำกว่า หรือปรับโค้ดส่วนดังกล่าวก่อน
 
-คำสั่งตัวอย่างสำหรับ Windows PowerShell (รันจากโฟลเดอร์รากของ repository):
+คำสั่งติดตั้งสำหรับ PyCharm Terminal บน Windows (รันจากโฟลเดอร์รากของ repository):
 
 ```powershell
 cd ".\RMUTR Bottle"
-py -3.11 -m venv .venv
-.\.venv\Scripts\Activate.ps1
 python -m pip install --upgrade pip
 ```
 
-ติดตั้งไลบรารีที่ใช้โดยสคริปต์ตรวจจับ การฝึกฝน การวิเคราะห์ผล และการสร้าง Dataset:
+ติดตั้งไลบรารีที่ใช้โดยสคริปต์ตรวจจับ การฝึกฝน และการวิเคราะห์ผลใน PyCharm:
 
 ```powershell
 python -m pip install torch torchvision
-python -m pip install ultralytics opencv-python numpy pandas matplotlib screeninfo roboflow
+python -m pip install ultralytics opencv-python numpy pandas matplotlib screeninfo
 ```
 
 ถ้าต้องการใช้ชุดโค้ด `backgroundremover` ที่อยู่ใน repository ให้ติดตั้ง dependency เพิ่มเติม และติดตั้ง FFmpeg/`ffprobe` ให้เรียกได้จาก `PATH`:
@@ -319,6 +317,10 @@ python -m backgroundremover.cmd.server --port 5000
 จาก Mini Project นี้ สรุปได้ว่า โมเดลสามารถตรวจจับขวดน้ำที่ฉลากอยู่ในตำแหน่งต่าง ๆ จากข้อมูลที่ไม่เคยเห็นได้ค่อนข้างแม่นยำมาก เนื่องจากมีการใช้ข้อมูลภาพใน Dataset ค่อนข้างมากและ Train epoch มากพอที่จะปรับให้ค่า Loss ต่ำสุดและคงที่ ในอนาคตอาจจะปรับปรุงโมเดลเพิ่มเติม เช่น เพิ่มข้อมูลที่ถ่ายจากหลากหลายมุม หลากหลายพื้นหลัง หลากหลายแสงมากขึ้น หรืออาจจะใช้โมเดลที่ใหญ่และซับซ้อนขึ้น
 
 วิดีโอ Inference/ผลการทำนาย: [ดูคลิป Inference](https://youtu.be/NY6tvybFny8) ลิงก์นี้เป็นคลิปผลการทำนายของโมเดล ไม่ใช่คลิปวิดีโอดิบจากโรงงาน (ลิงก์ต้นฉบับอยู่ใน [`assets/Inferring_video_link`](assets/Inferring_video_link))
+
+   <p align="center">
+     <img src="assets/555.png" alt="Inferring_video" width="180">
+   </p>
 
 ## คณะผู้จัดทำ
 

@@ -316,10 +316,10 @@ python -m backgroundremover.cmd.server --port 5000
 
 จาก Mini Project นี้ สรุปได้ว่า โมเดลสามารถตรวจจับขวดน้ำที่ฉลากอยู่ในตำแหน่งต่าง ๆ จากข้อมูลที่ไม่เคยเห็นได้ค่อนข้างแม่นยำมาก เนื่องจากมีการใช้ข้อมูลภาพใน Dataset ค่อนข้างมากและ Train epoch มากพอที่จะปรับให้ค่า Loss ต่ำสุดและคงที่ ในอนาคตอาจจะปรับปรุงโมเดลเพิ่มเติม เช่น เพิ่มข้อมูลที่ถ่ายจากหลากหลายมุม หลากหลายพื้นหลัง หลากหลายแสงมากขึ้น หรืออาจจะใช้โมเดลที่ใหญ่และซับซ้อนขึ้น
 
-วิดีโอ Inference/ผลการทำนาย: [ดูคลิป Inference](https://youtu.be/NY6tvybFny8) ลิงก์นี้เป็นคลิปผลการทำนายของโมเดล ไม่ใช่คลิปวิดีโอดิบจากโรงงาน (ลิงก์ต้นฉบับอยู่ใน [`assets/Inferring_video_link`](assets/Inferring_video_link))
+วิดีโอ Inference/ผลการทำนายของโมเดล: [ดูคลิป Inference](https://youtu.be/NY6tvybFny8)
 
    <p align="center">
-     <img src="assets/555.png" alt="Inferring_video" width="100%">
+     <img src="assets/555.png" alt="Inferring_video" width="80%">
    </p>
 
 ## คณะผู้จัดทำ

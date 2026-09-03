@@ -8,10 +8,10 @@
 <table align="center">
   <tr>
     <td align="center" width="50%">
-      <img src="assets/IMG3091.JPG" alt="Preview 1" width="100%">
+      <img src="assets/IMG_3091.JPG" alt="Preview 1" width="100%">
     </td>
     <td align="center" width="50%">
-      <img src="assets/IMG5730.JPG" alt="Preview 2" width="100%">
+      <img src="assets/IMG_5730.JPG" alt="Preview 2" width="100%">
     </td>
   </tr>
 </table>

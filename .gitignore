@@ -5,6 +5,6 @@ RMUTR Bottle/run2/
 RMUTR Bottle/runs3/
 *.zip
 *.tar.gz
-*.pt
+# *.pt
 *.onnx
 *.mp4

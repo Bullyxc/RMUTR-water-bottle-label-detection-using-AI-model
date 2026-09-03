@@ -1,0 +1,10 @@
+RMUTR Bottle/Cropped bottle fullframe01/
+RMUTR Bottle/Cropped bottle02/
+RMUTR Bottle/runs/
+RMUTR Bottle/run2/
+RMUTR Bottle/runs3/
+*.zip
+*.tar.gz
+*.pt
+*.onnx
+*.mp4

@@ -1,5 +1,8 @@
-<h1 align="center">โมเดลตรวจจับฉลากขวดน้ำ RMUTR</h1>
-<h2 align="center">RMUTR-water-bottle-label-detection-using-AI-model</h2>
+<!-- <h1 align="center">โมเดลตรวจจับฉลากขวดน้ำ RMUTR</h1>
+<h2 align="center">RMUTR-water-bottle-label-detection-using-AI-model</h2> -->
+# โมเดลตรวจจับฉลากขวดน้ำ RMUTR
+## RMUTR Water Bottle Label Detection Using AI Model
+
 
 ## 1. การเตรียมข้อมูล (Data Preparation)
 

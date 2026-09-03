@@ -27,7 +27,9 @@
 7. ดาวน์โหลด `runs.zip` เพื่อดูผลลัพธ์ เช่น Loss, mAP, precision และ recall
 8. ทดสอบโมเดลกับภาพใหม่ผ่านขั้นตอน `Inference with Custom Model`
 
-วิดีโอตัวอย่าง: <https://youtu.be/NY6tvybFny8>
+วิดีโอ Inference/ผลการทำนาย: <https://youtu.be/NY6tvybFny8>
+
+ลิงก์นี้เป็นคลิปผลการทำนายของโมเดล ไม่ใช่คลิปวิดีโอดิบที่ถ่ายจากโรงงาน
 
 ## โครงสร้างใน repository
 

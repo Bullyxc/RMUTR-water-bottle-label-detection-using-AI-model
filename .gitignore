@@ -6,5 +6,5 @@
 # *.zip
 *.tar.gz
 # *.pt
- *.onnx
+*.onnx
 *.mp4

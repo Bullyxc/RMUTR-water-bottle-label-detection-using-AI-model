@@ -319,7 +319,7 @@ python -m backgroundremover.cmd.server --port 5000
 วิดีโอ Inference/ผลการทำนาย: [ดูคลิป Inference](https://youtu.be/NY6tvybFny8) ลิงก์นี้เป็นคลิปผลการทำนายของโมเดล ไม่ใช่คลิปวิดีโอดิบจากโรงงาน (ลิงก์ต้นฉบับอยู่ใน [`assets/Inferring_video_link`](assets/Inferring_video_link))
 
    <p align="center">
-     <img src="assets/555.png" alt="Inferring_video" width="180">
+     <img src="assets/555.png" alt="Inferring_video" width="100%">
    </p>
 
 ## คณะผู้จัดทำ

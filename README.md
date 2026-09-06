@@ -6,7 +6,7 @@
 
 ## 1. การเตรียมข้อมูล (Data Preparation)
 
-วัตถุประสงค์ของ Mini Project โมเดลตรวจจับขวดน้ำและฉลาก RMUTR จัดทำขึ้นเพื่อศึกษาการใช้โมเดลคณิตศาสตร์มาประยุกต์กับการตรวจสอบการวางตำแหน่งของฉลากขวดน้ำ RMUTR ว่าอยู่ในตำแหน่งที่ถูกต้องเหมาะสมหรือไม่ ก่อนที่ขวดน้ำจะเข้าเครื่องอบไอน้ำให้ฉลากหดตัวเข้ากับรูปทรงขวดน้ำในกระบวนการถัดไป 
+วัตถุประสงค์ของ Mini Project โมเดลตรวจจับขวดน้ำและฉลาก RMUTR จัดทำขึ้นเพื่อศึกษาการใช้โมเดลคณิตศาสตร์มาประยุกต์กับการตรวจสอบการวางตำแหน่งของฉลากขวดน้ำ RMUTR ว่าอยู่ในตำแหน่งที่ถูกต้องเหมาะสมตามที่ผู้ผลิตต้องการหรือไม่ ก่อนที่ขวดน้ำจะเข้าเครื่องอบไอน้ำให้ฉลากหดตัวเข้ากับรูปทรงขวดน้ำในกระบวนการถัดไป 
 
 <table align="center">
   <tr>
@@ -39,7 +39,7 @@
      <img src="assets/3.jpg" alt="Label leak: ฉลากขวดน้ำที่หลุด" width="420">
    </p>
 
-โดยตัวอย่างข้อมูลที่เก็บจากโรงงานผลิตเป็นคลิปวีดิโอ ดังนั้นจะต้องทำการสร้างข้อมูลภาพจากวีดิโอ โดยวิธีที่ใช้จะเป็นการเขียนโปรแกรมภาษา Python ให้อ่านวีดิโอแล้วจับภาพนิ่งแบบเต็มเฟรมและแบบ Crop เฉพาะบริเวณขวดน้ำ ทุก ๆ 3 วินาที แล้วบันทึกเก็บไว้ในโฟลเดอร์
+โดยตัวอย่างข้อมูลที่เก็บมาจากโรงงานผลิตเป็นคลิปวีดิโอ ดังนั้นจึงต้องทำการสร้างข้อมูลภาพจากวีดิโอก่อน โดยวิธีที่ใช้จะเป็นการเขียนโปรแกรมภาษา Python ให้อ่านวีดิโอแล้วจับภาพนิ่งแบบเต็มเฟรมและแบบ Crop เฉพาะบริเวณขวดน้ำ ทุก ๆ 3 วินาที แล้วบันทึกเก็บไว้ในโฟลเดอร์
 
 <p align="center">
   <img src="assets/4.jpg" alt="การแปลงวิดีโอเป็นภาพแบบเต็มเฟรม" width="560">
@@ -54,27 +54,27 @@
 <table align="center">
   <tr>
     <td align="center"><img src="assets/6.jpg" alt="OK" width="260"><br>OK</td>
-    <td align="center"><img src="assets/7.jpg" alt="NG" width="260"><br>NG</td>
+    <td align="center"><img src="assets/7.png" alt="NG" width="260"><br>NG</td>
     <td align="center"><img src="assets/8.jpg" alt="Label leak" width="260"><br>Label leak</td>
   </tr>
 </table>
 
 ### 1.1 การทำความสะอาดและจัดระเบียบข้อมูล
 
-ข้อมูลภาพที่ใช้จะมีหลากหลายรูปแบบ ได้แก่ ภาพแบบเต็มเฟรม ภาพ Crop เฉพาะขวด ภาพขวดน้ำแบบเต็มขวดที่ถ่ายจากมือถือเพิ่มเติม เมื่ออัปโหลดลงบนเว็บไซต์ Roboflow ทำการ Label และตรวจสอบการ label เรียบร้อยแล้ว จากข้อมูลภาพ 300 ภาพ ในขั้นตอน Train/Test/Split จะแบ่งข้อมูลออกเป็น 3 ส่วน ได้แก่ ชุดข้อมูลฝึกฝน (Train set) ชุดข้อมูลตรวจสอบ (Validation set) และชุดข้อมูลทดสอบ (Test set) เป็นสัดส่วน 70%, 20%, 10% ตามลำดับ
+ข้อมูลภาพที่ใช้มีหลากหลายรูปแบบ ได้แก่ ภาพแบบเต็มเฟรม ภาพ Crop เฉพาะขวด และภาพขวดน้ำแบบเต็มขวดที่ถ่ายจากมือถือเพิ่มเติม เมื่ออัปโหลดลงบนเว็บไซต์ Roboflow ผู้จัดทำได้ทำการ Label และตรวจสอบการ label เรียบร้อยแล้ว จากข้อมูลภาพ 300 ภาพ ในขั้นตอน Train/Test/Split จะแบ่งข้อมูลออกเป็น 3 ส่วน ได้แก่ ชุดข้อมูลฝึกฝน (Train set) ชุดข้อมูลตรวจสอบ (Validation set) และชุดข้อมูลทดสอบ (Test set) เป็นสัดส่วน 70%, 20%, 10% ตามลำดับ
 
 <p align="center">
-  <img src="assets/9.jpg" alt="Roboflow Dataset" width="760">
+  <img src="assets/9.png" alt="Roboflow Dataset" width="760">
 </p>
 
 <p align="center">
-  <img src="assets/10.jpg" alt="Roboflow Train Test Split" width="760">
+  <img src="assets/10.png" alt="Roboflow Train Test Split" width="760">
 </p>
 
-ในขั้นตอน Preprocessing เป็นการเตรียมข้อมูลภาพก่อนจะใช้การ Auto-Orient เพื่อยกเลิกการหมุนและกำหนดลำดับพิกเซลให้เป็นมาตรฐาน, Resize เพื่อลดขนาดภาพ Dataset ให้เป็น 640x640 พิกเซล เพื่อลดขนาดรูปภาพให้ไฟล์มีขนาดเล็กลงและ Train โมเดลได้เร็วขึ้น และ Auto-Adjust Contrast เพื่อเพิ่มความคมชัดตามฮิสโทแกรมของภาพและตรวจจับเส้นขอบในสภาพแสงที่แตกต่างกันได้ดีขึ้น
+ในขั้นตอน Preprocessing เป็นการเตรียมข้อมูลภาพก่อนจะใช้การ Auto-Orient เพื่อยกเลิกการหมุนและกำหนดลำดับพิกเซลให้เป็นมาตรฐาน, Resize เพื่อลดขนาดภาพ Dataset ให้เป็น 640x640 พิกเซล เพื่อลดขนาดรูปภาพให้ไฟล์มีขนาดเล็กลงและ Train โมเดลได้เร็วขึ้น และ Auto-Adjust Contrast เพื่อเพิ่มความคมชัดตามฮิสโทแกรมของภาพและตรวจจับเส้นขอบในสภาวะแสงที่แตกต่างกันได้ดีขึ้น
 
 <p align="center">
-  <img src="assets/11.jpg" alt="Roboflow Preprocessing" width="760">
+  <img src="assets/11.png" alt="Roboflow Preprocessing" width="760">
 </p>
 
 ### 1.2 การเพิ่มข้อมูล (Data Augmentation)
@@ -82,37 +82,37 @@
 Augmentation จะทำการแปลงภาพที่มีอยู่เพื่อสร้างรูปแบบใหม่และเพิ่มจำนวนภาพในชุดข้อมูล ซึ่งทำให้โมเดลมีความแม่นยำมากขึ้น ป้องกันการเกิด Overfitting เทคนิคที่จะใช้ช่วยเพิ่มข้อมูล ได้แก่ การพลิกภาพ (Flip), การหมุนภาพ (Rotation), การบิดภาพ (Shear), ความสว่าง (Brightness), ค่าการเปิดรับแสง (Exposure), การเบลอภาพ (Blur)
 
 <p align="center">
-  <img src="assets/12.jpg" alt="Roboflow Data Augmentation" width="760">
+  <img src="assets/12.png" alt="Roboflow Data Augmentation" width="760">
 </p>
 
 ## 2. การทำงานของ Code (Code Operation)
 
 ### 2.1 สภาพแวดล้อมการทำงาน
 
-แพลตฟอร์มที่ใช้ใน Mini Project นี้ได้แก่ PyCharm ใช้เขียนโปรแกรมทั้งหมดด้วยภาษา Python และติดตั้งไลบรารีที่จำเป็น, Roboflow ใช้ในการสร้างชุดข้อมูล (Dataset) และ Google Colab ใช้เฉพาะในการ Training Custom Model
+แพลตฟอร์มที่ใช้ใน Mini Project นี้ได้แก่ PyCharm ใช้เขียนโปรแกรมทั้งหมดด้วยภาษา Python และติดตั้งไลบรารีที่จำเป็น, Roboflow ใช้ในการสร้างชุดข้อมูล (Dataset) และ Google Colab ใช้เฉพาะการ Training Custom Model เท่านั้น
 
-ไลบรารีที่ติดตั้งและใช้งานใน PyCharm ได้แก่ OpenCV, YOLOv8, pandas, matplotlib ส่วน Dataset ใช้ผ่านเว็บไซต์ Roboflow และลิงก์ที่ระบุไว้ในขั้นตอน Training
+ไลบรารีที่ติดตั้งและใช้งานใน PyCharm ได้แก่ OpenCV, YOLOv8, pandas, matplotlib ส่วน Dataset ใช้ผ่านลิงก์เว็บไซต์ Roboflow ที่ระบุไว้ในขั้นตอน Training
 
 <p align="center">
-  <img src="assets/13.jpg" alt="PyCharm" width="720"><br>
+  <img src="assets/13.png" alt="PyCharm" width="720"><br>
   PyCharm
 </p>
 
 <p align="center">
-  <img src="assets/14.jpg" alt="Roboflow" width="720"><br>
+  <img src="assets/14.png" alt="Roboflow" width="720"><br>
   Roboflow
 </p>
 
 <p align="center">
-  <img src="assets/15.jpg" alt="Google Colab" width="720"><br>
+  <img src="assets/15.png" alt="Google Colab" width="720"><br>
   Google Colab
 </p>
 
 #### การติดตั้งไลบรารีใน PyCharm
 
-โปรเจคนี้ติดตั้งไลบรารีใน Python interpreter หรือ Terminal ของ PyCharm โดยตรง และไม่ได้สร้างหรือใช้ virtual environment ภายใน repository ส่วน Google Colab ใช้เฉพาะสำหรับ Training Custom Model จึงไม่ต้องติดตั้งไลบรารีในเครื่องสำหรับ Colab ไฟล์ต้นฉบับไม่ได้ระบุ Python version แบบตายตัว แนะนำให้ใช้ **Python 3.11.x** เพื่อให้รองรับทั้งสคริปต์ตรวจจับและชุด `backgroundremover` ที่ยังเรียกใช้ `distutils` อยู่ โค้ดตรวจจับหลักอาจทำงานบน Python 3.12 ได้ แต่การใช้งาน `backgroundremover/cmd/cli.py` ควรใช้ Python 3.11 หรือต่ำกว่า หรือปรับโค้ดส่วนดังกล่าวก่อน
+โปรเจคนี้ติดตั้งไลบรารีใน Python interpreter หรือ Terminal ของ PyCharm โดยตรง ไม่ได้ใช้ virtual environment ภายใน repository ส่วน Google Colab ใช้เฉพาะสำหรับ Training Custom Model จึงไม่ต้องติดตั้งไลบรารีในเครื่องสำหรับ Colab ไฟล์ต้นฉบับไม่ได้ระบุ Python version แบบตายตัว จึงแนะนำให้ใช้ **Python 3.11.x** เพื่อให้รองรับทั้งสคริปต์ตรวจจับและชุด `backgroundremover` ที่ยังเรียกใช้ `distutils` อยู่ โค้ดตรวจจับหลักอาจทำงานบน Python 3.12 ได้ แต่การใช้งาน `backgroundremover/cmd/cli.py` ควรใช้ Python 3.11 หรือต่ำกว่า หรือต้องปรับโค้ดส่วนดังกล่าวก่อน
 
-คำสั่งติดตั้งสำหรับ PyCharm Terminal บน Windows (รันจากโฟลเดอร์รากของ repository):
+คำสั่งติดตั้งสำหรับ PyCharm Terminal บน Windows (รันจากโฟลเดอร์ Root ของ repository):
 
 ```powershell
 cd ".\RMUTR Bottle"
@@ -132,17 +132,18 @@ python -m pip install ultralytics opencv-python numpy pandas matplotlib screenin
 python -m pip install pillow scipy scikit-image pymatting moviepy ffmpeg-python requests flask waitress hsh
 ```
 
-สำหรับการใช้ GPU ให้ติดตั้ง `torch` และ `torchvision` ให้ตรงกับเวอร์ชัน CUDA ของเครื่องตามตัวติดตั้ง PyTorch ที่ใช้งานจริง แล้วตรวจสอบด้วย:
+สำหรับการใช้ GPU ให้ติดตั้ง `torch` และ `torchvision` ให้ตรงกับเวอร์ชัน CUDA ของเครื่องตามตัวติดตั้ง PyTorch ที่ใช้งานจริง แล้วตรวจสอบด้วยคำสั่ง:
 
 ```powershell
 python -c "import torch; print(torch.__version__); print('CUDA:', torch.cuda.is_available())"
 ```
 
-หมายเหตุ: repository นี้ยังไม่มี `requirements.txt` หรือ `pyproject.toml` และสคริปต์หลายไฟล์กำหนด path ของโมเดล/วิดีโอไว้ในตัวไฟล์ จึงต้องแก้ค่าบล็อก `CONFIG` ให้ตรงกับเครื่องก่อนรันทุกครั้ง ห้ามนำ Roboflow API key หรือ download code ที่มี token ขึ้น repository
+หมายเหตุ: repository นี้ยังไม่มี `requirements.txt` หรือ `pyproject.toml` และสคริปต์หลายไฟล์กำหนด path ของโมเดล/วิดีโอไว้ในตัวไฟล์ จึงต้องแก้ค่าบล็อก `CONFIG` ให้ตรงกับเครื่องก่อนรันทุกครั้ง 
+คำเตือน! ห้ามนำ Roboflow API key หรือ upload code ที่มี token ขึ้น repository เด็ดขาด
 
 #### ไฟล์โค้ด/สคริปต์ที่รันได้ในปัจจุบัน
 
-จากการตรวจ repository ไม่พบไฟล์ Node.js (`.js` หรือ `.ts`) ดังนั้นรายการนี้จึงสรุปไฟล์โค้ด Python (`.py`) ที่มีอยู่และจุดเริ่มต้นที่เรียกใช้งานได้ในปัจจุบัน
+สรุปไฟล์โค้ด Python (`.py`) ที่มีอยู่และจุดเริ่มต้นที่เรียกใช้งานได้ในปัจจุบัน
 
 ไฟล์ที่อยู่ในโฟลเดอร์ `RMUTR Bottle/` มีหน้าที่ดังนี้:
 
@@ -203,44 +204,44 @@ python -m backgroundremover.cmd.server --port 5000
 
 ### 2.2 โครงสร้างและขั้นตอนการทำงานของโค้ด
 
-ในส่วนของการฝึกฝนโมเดล (Training Model) จะใช้โมเดล YOLOv8s Object Detection : [Roboflow YOLOv8 notebook](https://colab.research.google.com/github/roboflow-ai/notebooks/blob/main/notebooks/train-yolov8-object-detection-on-custom-dataset.ipynb) มาฝึกฝนด้วย Dataset ของภาพขวดน้ำที่สร้างจาก Roboflow : [RMUTR Salaya Bottle Label Dataset](https://app.roboflow.com/kittipat-blwh5/rmutr-salaya-bottle-label-hybrid-ibceo/2) โดยจะใช้ T4 GPU บน Google Colab ที่มีประสิทธิภาพสูง Train โมเดลตามขั้นตอนต่อไปนี้
+ในส่วนของการฝึกฝนโมเดล (Training Model) จะใช้โมเดล YOLOv8s Object Detection : [Roboflow YOLOv8 notebook](https://colab.research.google.com/github/roboflow-ai/notebooks/blob/main/notebooks/train-yolov8-object-detection-on-custom-dataset.ipynb) มาฝึกฝนด้วย Dataset ของภาพขวดน้ำที่ผู้จัดทำได้สร้างไว้ใน Roboflow : [RMUTR Salaya Bottle Label Dataset](https://app.roboflow.com/kittipat-blwh5/rmutr-salaya-bottle-label-hybrid-ibceo/2) โดยจะใช้ T4 GPU บน Google Colab ที่มีประสิทธิภาพสูง Train โมเดลตามขั้นตอนดังต่อไปนี้
 
-1. ข้อมูล GPU ตัวใดที่ได้รับการจัดสรรให้กับเซสชัน Colab ปัจจุบัน
+1. ดูข้อมูล GPU ตัวที่ได้รับการจัดสรรให้กับเซสชัน Colab ปัจจุบัน
 
    <p align="center">
-     <img src="assets/16.jpg" alt="ตรวจสอบ GPU ใน Google Colab" width="720">
+     <img src="assets/16.png" alt="ตรวจสอบ GPU ใน Google Colab" width="720">
    </p>
 
-2. ติดตั้ง library YOLOv8
+2. ติดตั้ง YOLOv8
 
    <p align="center">
-     <img src="assets/17.jpg" alt="ติดตั้ง YOLOv8 ใน Google Colab" width="720">
+     <img src="assets/17.png" alt="ติดตั้ง YOLOv8 ใน Google Colab" width="720">
    </p>
 
-3. Upload Dataset จาก Roboflow โดย copy download code ของ dataset มาวาง
+3. Upload Dataset จาก Roboflow โดย copy download code ของ dataset มาวางใน shell นี้
 
    <p align="center">
-     <img src="assets/18.jpg" alt="Upload Dataset จาก Roboflow" width="720">
+     <img src="assets/18.png" alt="Upload Dataset จาก Roboflow" width="720">
    </p>
 
-4. กำหนดค่าพารามิเตอร์การ Train เป็น `yolov8s.pt`, `epochs=400` รอบ, `imgsz=640`
+4. กำหนดค่าพารามิเตอร์การ Train เป็น `yolov8s.pt` (small), `epochs=400` รอบ, `imgsz=640`
 
    <p align="center">
-     <img src="assets/19.jpg" alt="กำหนดค่าพารามิเตอร์การ Train" width="760">
+     <img src="assets/19.png" alt="กำหนดค่าพารามิเตอร์การ Train" width="760">
    </p>
 
-5. เมื่อ Train เสร็จ ให้เพิ่ม shell แล้วใช้คำสั่ง `!zip -r /content/runs.zip /content/runs/` เพื่อบีบอัดโฟลเดอร์ผลลัพธ์ runs ให้เป็นไฟล์ `.zip` แล้วจึงจะสามารถ download ลงเครื่องคอมพิวเตอร์ได้
+5. เมื่อ Train เสร็จ ให้เพิ่ม shell ด้านล่าง แล้วใช้คำสั่ง `!zip -r /content/runs.zip /content/runs/` เพื่อบีบอัดโฟลเดอร์ผลลัพธ์ runs ให้เป็นไฟล์ `.zip` แล้วจึงจะสามารถ download ทั้งโฟลเดอร์ลงเครื่องคอมพิวเตอร์ได้
 
    <p align="center">
-     <img src="assets/20.jpg" alt="บีบอัดโฟลเดอร์ runs" width="760">
+     <img src="assets/20.png" alt="บีบอัดโฟลเดอร์ runs" width="760">
    </p>
 
 โดยภาพรวมจะใช้ Machine Learning ให้โมเดลเรียนรู้ข้อมูลภาพ 3 Classes ดังนี้
 
-6. Download ไฟล์ `runs.zip` ซึ่งจะมีข้อมูลผลลัพธ์จากการ Train ทั้งหมด เช่น Loss, mAP, precision, recall
+6. Download ไฟล์ `runs.zip` ซึ่งจะมีข้อมูลผลลัพธ์จากการ Train ทั้งหมด เช่น weights, Loss, mAP, precision, recall
 
    <p align="center">
-     <img src="assets/21.jpg" alt="ดาวน์โหลดผลลัพธ์ runs.zip" width="760">
+     <img src="assets/21.png" alt="ดาวน์โหลดผลลัพธ์ runs.zip" width="760">
    </p>
 
 ## 3. การทดสอบและการประมวลผลของ Train Model (Train Model Accuracy)
@@ -287,7 +288,7 @@ python -m backgroundremover.cmd.server --port 5000
 การใช้โมเดลที่ฝึกฝนแล้วทำนายผล (Predict) จากภาพใหม่ที่โมเดลไม่เคยเรียนรู้มาก่อนบน Google Colab สามารถรันได้บน Shell : Inference with Custom Model
 
 <p align="center">
-  <img src="assets/27.jpg" alt="Inference with Custom Model" width="800">
+  <img src="assets/27.png" alt="Inference with Custom Model" width="800">
 </p>
 
 <p align="center">
@@ -305,18 +306,20 @@ python -m backgroundremover.cmd.server --port 5000
 
 <table align="center">
   <tr>
-    <td><img src="assets/31.jpg" alt="ผลการตรวจจับขวดน้ำตัวอย่างที่ 1" width="340"></td>
-    <td><img src="assets/32.jpg" alt="ผลการตรวจจับขวดน้ำตัวอย่างที่ 2" width="340"></td>
+    <td><img src="assets/31.jpg" alt="ผลการตรวจจับขวดน้ำ OK" 
+    width="340"></td>
+    <td><img src="assets/32.jpg" alt="ผลการตรวจจับขวดน้ำ OK และ NG" width="340"></td>
   </tr>
   <tr>
-    <td><img src="assets/33.jpg" alt="ผลการตรวจจับขวดน้ำตัวอย่างที่ 3" width="340"></td>
-    <td><img src="assets/34.jpg" alt="ผลการตรวจจับขวดน้ำตัวอย่างที่ 4" width="340"></td>
+    <td><img src="assets/33.jpg" alt="ผลการตรวจจับขวดน้ำ NG และฉลากหลุด" width="340"></td>
+    <td><img src="assets/34.jpg" alt="ผลการตรวจจับขวดน้ำ OK" 
+    width="340"></td>
   </tr>
 </table>
 
-จาก Mini Project นี้ สรุปได้ว่า โมเดลสามารถตรวจจับขวดน้ำที่ฉลากอยู่ในตำแหน่งต่าง ๆ จากข้อมูลที่ไม่เคยเห็นได้ค่อนข้างแม่นยำมาก เนื่องจากมีการใช้ข้อมูลภาพใน Dataset ค่อนข้างมากและ Train epoch มากพอที่จะปรับให้ค่า Loss ต่ำสุดและคงที่ ในอนาคตอาจจะปรับปรุงโมเดลเพิ่มเติม เช่น เพิ่มข้อมูลที่ถ่ายจากหลากหลายมุม หลากหลายพื้นหลัง หลากหลายแสงมากขึ้น หรืออาจจะใช้โมเดลที่ใหญ่และซับซ้อนขึ้น
+จาก Mini Project นี้ สรุปผลได้ว่า โมเดลสามารถตรวจจับขวดน้ำที่ฉลากอยู่ในตำแหน่งต่าง ๆ จากข้อมูลที่ไม่เคยเห็นได้ค่อนข้างแม่นยำมาก เนื่องจากมีการใช้ข้อมูลภาพใน Dataset ค่อนข้างมากและจำนวน Train epoch มากพอที่จะปรับให้ค่า Loss ต่ำที่สุดเท่าที่จะเป็นไปได้และคงที่ ในอนาคตอาจจะปรับปรุงโมเดลเพิ่มเติม อาทิ เพิ่มข้อมูลที่ถ่ายจากหลากหลายมุม หลากหลายพื้นหลัง หลากหลายสภาวะแสงมากขึ้น หรืออาจจะใช้โมเดลที่ใหญ่และซับซ้อนมากขึ้น
 
-วิดีโอ Inference/ผลการทำนายของโมเดล: [ดูคลิป Inference](https://youtu.be/NY6tvybFny8)
+วิดีโอ Inference ผลการทำนายของโมเดล: [ดูคลิป Inference](https://youtu.be/NY6tvybFny8)
 
    <p align="center">
      <img src="assets/555.png" alt="Inferring_video" width="80%">
